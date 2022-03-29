@@ -1,4 +1,6 @@
 import TinderCard from 'react-tinder-card';
+import ReactPlayer from 'react-player';
+import './SwipeCard.css';
 
 function SwipeCard(props){
     const onSwipe = (direction) => {
@@ -14,7 +16,8 @@ function SwipeCard(props){
       }
     return (
         <TinderCard onSwipe={(onSwipe)} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>
-            <img src="/exercise.jpg" alt="exercise"></img>
+           <ReactPlayer className="videoPlayer" url='https://www.youtube.com/watch?v=KMM93NiLAqM' width="250px" height="100px"/>
+           <h5 className="text">some random text</h5>
         </TinderCard>
     )
 }
