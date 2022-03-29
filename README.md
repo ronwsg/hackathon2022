@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Dariothon 2022
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+chat bot framework: [React Simple Chatbot](https://www.npmjs.com/package/react-simple-chatbot)
+
+Swipe Card module: [ReactTinderCard](https://www.npmjs.com/package/react-tinder-card)
 
 ## Available Scripts
 
