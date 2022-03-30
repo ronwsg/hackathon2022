@@ -6,10 +6,10 @@ function SwipeCard(props){
     const onSwipe = (direction) => {
         console.log('You swiped: ' + direction, props);
         if (direction === 'right') {
-            props.onSwipeRight(props.videoData.url);
+            props.onSwipeRight(props.videoData.title);
         }
         props.triggerNextStep({
-            value: direction,
+            value: direction === 'right' ? 'accept' : 'reject',
             trigger: props.nextId
         })
       }

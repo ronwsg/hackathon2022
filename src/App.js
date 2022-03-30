@@ -4,9 +4,9 @@ import './App.css';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import SwipeCard from './SwipeCard';
-import ResultPlaylist from './ResultPlaylist';
+import Result from './Result';
 import Review from './Review';
-import Video from './Video';
+// import Video from './Video';
 
 const theme = {
   background: '#f5f8fb',
@@ -45,6 +45,7 @@ const videoData = {
   ]
 }
 const onSwipeRight = (videoUrl) => {
+  console.log('adding', videoUrl);
   selectedVideos.push(videoUrl);
 }
 
@@ -252,7 +253,7 @@ function App() {
       },
       {
         id: 'choose-exercise-1-result',
-        message: 'You swiped {previousValue}',
+        message: 'You {previousValue}',
         trigger:'choose-exercise-2'
       },
       {
@@ -262,7 +263,7 @@ function App() {
       },
       {
         id: 'choose-exercise-2-result',
-        message: 'You swiped {previousValue}',
+        message: 'You {previousValue}',
         trigger:'choose-exercise-3'
       },
       {
@@ -272,9 +273,19 @@ function App() {
       },
       {
         id: 'choose-exercise-3-result',
-        message: 'You swiped {previousValue}',
-        end: true
+        message: 'You {previousValue}',
+        trigger: 'exercise-summary'
       },
+      {
+        id: 'exercise-summary',
+        message: 'Thank you for your selection!',
+        trigger: 'exercise-summary-1'
+      },
+      {
+        id: 'exercise-summary-1',
+        component: (<Result selectedVideos={selectedVideos}/>),
+        end: true
+      }
       // {
       //   id: 'video-options',
       //   message: 'Choose video category',
