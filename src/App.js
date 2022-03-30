@@ -19,13 +19,28 @@ const theme = {
   userFontColor: '#4a4a4a',
 };
 
-const videoURLs = {
+const videoData = {
   bh: [
-    "https://www.youtube.com/watch?v=KMM93NiLAqM",
-    "https://www.youtube.com/watch?v=sTANio_2E0Q",
-    "https://www.youtube.com/watch?v=8TuRYV71Rgo",
-    "https://www.youtube.com/watch?v=hJbRpHZr_d0",
-    "https://www.youtube.com/watch?v=z6X5oEIg6Ak"
+    {
+      url: "https://www.youtube.com/watch?v=KMM93NiLAqM",
+      title: "Relaxing Music",
+    },
+    {
+      url: "https://www.youtube.com/watch?v=sTANio_2E0Q",
+      title: "Stretch/Yoga for stress & anxiety",
+    },
+    {
+      url: "https://www.youtube.com/watch?v=8TuRYV71Rgo",
+      title: "10 Minute Yoga",
+    },
+    {
+      url: "https://www.youtube.com/watch?v=hJbRpHZr_d0",
+      title: "Yoga For Anxiety and Stress",
+    },
+    {
+      url: "https://www.youtube.com/watch?v=z6X5oEIg6Ak",
+      title: "Meditation For Stress",
+    }
   ]
 }
 const onSwipeRight = (videoUrl) => {
@@ -144,27 +159,27 @@ function App() {
       {
         id: 'choose-exercise-1',
         waitAction: true,
-        component: (<SwipeCard url={videoURLs.bh[0]} onSwipeRight={onSwipeRight} nextId="choose-exercise-2"/>), 
+        component: (<SwipeCard videoData={videoData.bh[0]} onSwipeRight={onSwipeRight} nextId="choose-exercise-2"/>), 
       },
       {
         id: 'choose-exercise-2',
         waitAction: true,
-        component: (<SwipeCard url={videoURLs.bh[0]} onSwipeRight={onSwipeRight} nextId="choose-exercise-3"/>), 
+        component: (<SwipeCard videoData={videoData.bh[1]} onSwipeRight={onSwipeRight} nextId="choose-exercise-3"/>), 
       },
       {
         id: 'choose-exercise-3',
         waitAction: true,
-        component: (<SwipeCard url={videoURLs.bh[0]} onSwipeRight={onSwipeRight} nextId="choose-exercise-4"/>), 
+        component: (<SwipeCard videoData={videoData.bh[2]} onSwipeRight={onSwipeRight} nextId="choose-exercise-4"/>), 
       },
       {
         id: 'choose-exercise-4',
         waitAction: true,
-        component: (<SwipeCard url={videoURLs.bh[0]} onSwipeRight={onSwipeRight} nextId="choose-exercise-5"/>), 
+        component: (<SwipeCard videoData={videoData.bh[3]} onSwipeRight={onSwipeRight} nextId="choose-exercise-5"/>), 
       },
       {
         id: 'choose-exercise-5',
         waitAction: true,
-        component: (<SwipeCard url={videoURLs.bh[0]} onSwipeRight={onSwipeRight} nextId="show-playlist"/>), 
+        component: (<SwipeCard videoData={videoData.bh[4]} onSwipeRight={onSwipeRight} nextId="show-playlist"/>), 
       },
       {
         id: 'show-playlist',
