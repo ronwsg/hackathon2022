@@ -18,6 +18,16 @@ const theme = {
   userFontColor: '#4a4a4a',
 };
 
+const videoURLs = {
+  bh: [
+    "https://www.youtube.com/watch?v=KMM93NiLAqM",
+    "https://www.youtube.com/watch?v=sTANio_2E0Q",
+    "https://www.youtube.com/watch?v=8TuRYV71Rgo",
+    "https://www.youtube.com/watch?v=hJbRpHZr_d0",
+    "https://www.youtube.com/watch?v=z6X5oEIg6Ak"
+  ]
+}
+
 function App() {
 
   const steps = [
@@ -128,7 +138,7 @@ function App() {
       {
         id: 'choose-exercise',
         waitAction: true,
-        component: (<SwipeCard></SwipeCard>), 
+        component: (<SwipeCard url={videoURLs.bh[0]} />), 
       },
       {
         id: 'choose-exercise-left',

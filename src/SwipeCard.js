@@ -16,7 +16,7 @@ function SwipeCard(props){
       }
     return (
         <TinderCard onSwipe={(onSwipe)} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>
-           <ReactPlayer className="videoPlayer" url='https://www.youtube.com/watch?v=KMM93NiLAqM' width="250px" height="100px"/>
+           <ReactPlayer className="videoPlayer" url={props.url} width="250px" height="100px"/>
            <h5 className="text">some random text</h5>
         </TinderCard>
     )
