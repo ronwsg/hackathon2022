@@ -6,7 +6,7 @@ class Review extends Component {
     super(props);
 
     const { steps } = this.props;
-    const { name, gender, age } = steps;
+    const { name, gender, age, phone, email } = steps;
 
     // this.setState({ name, gender, age });
 
@@ -14,6 +14,8 @@ class Review extends Component {
       name: name,
       gender: gender,
       age: age,
+      phone: phone,
+      email: email
     };
   }
 
@@ -25,7 +27,7 @@ class Review extends Component {
 //   }
 
   render() {
-    const { name, gender, age } = this.state;
+    const { name, gender, age, phone, email } = this.state;
     return (
       <div style={{ width: '100%' }}>
         <h3>Summary</h3>
@@ -42,6 +44,14 @@ class Review extends Component {
             <tr>
               <td>Age</td>
               <td>{age.value}</td>
+            </tr>
+            <tr>
+              <td>Phone</td>
+              <td>{phone.value}</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>{email.value}</td>
             </tr>
           </tbody>
         </table>
