@@ -55,7 +55,7 @@ function App() {
   const steps = [
       {
         id: '1',
-        message: 'What is your first name?',
+        message: 'What is your full name?',
         trigger: 'name',
       },
       {
@@ -229,10 +229,7 @@ function App() {
       {
         id: 'feel-chatbot-answer-1',
         message: "Ouch...and is this because you have any body pain?",
-        trigger: 'choose-exercise',
-        id: 'choose-exercise-message',
-        message: 'Please select your playlist.',
-        trigger: 'choose-exercise-message-2',
+        trigger: 'choose-exercise-message-2'
       },
       {
         id: 'choose-exercise-message-2',
@@ -252,7 +249,7 @@ function App() {
       {
         id: 'choose-exercise-3',
         waitAction: true,
-        component: (<SwipeCard videoData={videoData.bh[2]} onSwipeRight={onSwipeRight} nextId="choose-exercise-4"/>), 
+        component: (<SwipeCard videoData={videoData.bh[2]} onSwipeRight={onSwipeRight} nextId="video-options"/>), 
       },
       {
         id: 'choose-exercise-right',
@@ -276,46 +273,45 @@ function App() {
         id: 'bh-video',
         component: (<Video url="https://www.tiktok.com/@physicaltherapylife/video/6977895036285373697"></Video>),
         trigger:'bh-video-1'
+        // end: true
       },
       {
         id: 'metabolic-video',
-        component: (<Video url="https://www.tiktok.com/@kaelimaee/video/6988657706668428550?is_copy_url=1&is_from_webapp=v1&q=diabetic&t=1648552583509"></Video>)
+        component: (<Video url="https://www.tiktok.com/@kaelimaee/video/6988657706668428550?is_copy_url=1&is_from_webapp=v1&q=diabetic&t=1648552583509"></Video>),
+        end: true
       },
-  
       {
         id: 'bh-video-1',
         message: 'More BH videos ?',
-        trigger:'more-video'
+        // trigger:'more-video'
+        end: true
       },
-      {
-        id: 'more-video',
-        options: [
-          { value: 'yes', label: 'YES', trigger: 'bh-video-2' },
-          { value: 'no', label: 'NO', trigger: 'video-categories' },
-        ]
-      },
-      {
-        id: 'bh-video-2',
-        component: (<Video url="https://www.tiktok.com/music/original-sound-7065207889099131649"></Video>),
-        id: 'choose-exercise-4',
-        waitAction: true,
-        component: (<SwipeCard videoData={videoData.bh[3]} onSwipeRight={onSwipeRight} nextId="choose-exercise-5"/>), 
-      },
-      {
-        id: 'choose-exercise-5',
-        waitAction: true,
-        component: (<SwipeCard videoData={videoData.bh[4]} onSwipeRight={onSwipeRight} nextId="playlist-message"/>), 
-      },
-      {
-        id: 'playlist-message',
-        message: 'Here is your playlist',
-        trigger: 'show-playlist',
-      },
-      {
-        id: 'show-playlist',
-        waitAction: true,
-        component: (<ResultPlaylist selectedVideos={selectedVideos} />), 
-      },
+      // {
+      //   id: 'more-video',
+      //   options: [
+      //     { value: 'yes', label: 'YES', trigger: 'bh-video-2' },
+      //     { value: 'no', label: 'NO', trigger: 'video-categories' },
+      //   ]
+      // },
+      // {
+      //   id: 'bh-video-2',
+      //   component: (<Video url="https://www.tiktok.com/music/original-sound-7065207889099131649"></Video>)
+      // },
+      // {
+      //   id: 'choose-exercise-5',
+      //   waitAction: true,
+      //   component: (<SwipeCard videoData={videoData.bh[4]} onSwipeRight={onSwipeRight} nextId="playlist-message"/>), 
+      // },
+      // {
+      //   id: 'playlist-message',
+      //   message: 'Here is your playlist',
+      //   trigger: 'show-playlist',
+      // },
+      // {
+      //   id: 'show-playlist',
+      //   waitAction: true,
+      //   component: (<ResultPlaylist selectedVideos={selectedVideos} />), 
+      // },
   ];
 
 
