@@ -229,63 +229,82 @@ function App() {
       {
         id: 'feel-chatbot-answer-1',
         message: "Ouch...and is this because you have any body pain?",
-        trigger: 'choose-exercise-message-2'
+        trigger: 'feel-user-answer-2'
+      },
+      {
+        id: 'feel-user-answer-2',
+        user: true,
+        trigger: 'choose-exercise-message-2',
       },
       {
         id: 'choose-exercise-message-2',
-        message: 'Swipe left to reject. Swipe right to accept.',
+        message: `We have lot of experience to help people with stress issues.
+        I will suggest to you some videos:
+        swipe "right"...it's in your playlist!
+        swipe "left" it won't be there!
+        At the end, you will get playlist with selected videos.`,
         trigger: 'choose-exercise-1',
       },
       {
         id: 'choose-exercise-1',
         waitAction: true,
-        component: (<SwipeCard videoData={videoData.bh[0]} onSwipeRight={onSwipeRight} nextId="choose-exercise-2"/>), 
+        component: (<SwipeCard videoData={videoData.bh[0]} onSwipeRight={onSwipeRight} nextId="choose-exercise-1-result"/>), 
+      },
+      {
+        id: 'choose-exercise-1-result',
+        message: 'You swiped {previousValue}',
+        trigger:'choose-exercise-2'
       },
       {
         id: 'choose-exercise-2',
         waitAction: true,
-        component: (<SwipeCard videoData={videoData.bh[1]} onSwipeRight={onSwipeRight} nextId="choose-exercise-3"/>), 
+        component: (<SwipeCard videoData={videoData.bh[1]} onSwipeRight={onSwipeRight} nextId="choose-exercise-2-result"/>), 
+      },
+      {
+        id: 'choose-exercise-2-result',
+        message: 'You swiped {previousValue}',
+        trigger:'choose-exercise-3'
       },
       {
         id: 'choose-exercise-3',
         waitAction: true,
-        component: (<SwipeCard videoData={videoData.bh[2]} onSwipeRight={onSwipeRight} nextId="video-options"/>), 
+        component: (<SwipeCard videoData={videoData.bh[2]} onSwipeRight={onSwipeRight} nextId="choose-exercise-3-result"/>), 
       },
       {
-        id: 'choose-exercise-right',
-        message: 'You swiped {previousValue}!',
-        trigger:'video-options'
-      },
-      {
-        id: 'video-options',
-        message: 'Choose video category',
-        trigger: 'video-categories',
-      },
-      {
-        id: 'video-categories',
-        options: [
-          // { value: 'msk', label: 'MSK', trigger: 'msk-video' },
-          { value: 'bh', label: 'BH', trigger: 'bh-video' },
-          { value: 'metabolic', label: 'Metabolic', trigger: 'metabolic-video' },
-        ]
-      },
-      {
-        id: 'bh-video',
-        component: (<Video url="https://www.tiktok.com/@physicaltherapylife/video/6977895036285373697"></Video>),
-        trigger:'bh-video-1'
-        // end: true
-      },
-      {
-        id: 'metabolic-video',
-        component: (<Video url="https://www.tiktok.com/@kaelimaee/video/6988657706668428550?is_copy_url=1&is_from_webapp=v1&q=diabetic&t=1648552583509"></Video>),
+        id: 'choose-exercise-3-result',
+        message: 'You swiped {previousValue}',
         end: true
       },
-      {
-        id: 'bh-video-1',
-        message: 'More BH videos ?',
-        // trigger:'more-video'
-        end: true
-      },
+      // {
+      //   id: 'video-options',
+      //   message: 'Choose video category',
+      //   trigger: 'video-categories',
+      // },
+      // {
+      //   id: 'video-categories',
+      //   options: [
+      //     // { value: 'msk', label: 'MSK', trigger: 'msk-video' },
+      //     { value: 'bh', label: 'BH', trigger: 'bh-video' },
+      //     { value: 'metabolic', label: 'Metabolic', trigger: 'metabolic-video' },
+      //   ]
+      // },
+      // {
+      //   id: 'bh-video',
+      //   component: (<Video url="https://www.tiktok.com/@physicaltherapylife/video/6977895036285373697"></Video>),
+      //   trigger:'bh-video-1'
+      //   // end: true
+      // },
+      // {
+      //   id: 'metabolic-video',
+      //   component: (<Video url="https://www.tiktok.com/@kaelimaee/video/6988657706668428550?is_copy_url=1&is_from_webapp=v1&q=diabetic&t=1648552583509"></Video>),
+      //   end: true
+      // },
+      // {
+      //   id: 'bh-video-1',
+      //   message: 'More BH videos ?',
+      //   trigger:'more-video'
+      //   // end: true
+      // },
       // {
       //   id: 'more-video',
       //   options: [
