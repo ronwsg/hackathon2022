@@ -5,9 +5,12 @@ import './SwipeCard.css';
 function SwipeCard(props){
     const onSwipe = (direction) => {
         console.log('You swiped: ' + direction, props);
+        if (direction === 'right') {
+            props.onSwipeRight(props.videoData.url);
+        }
         props.triggerNextStep({
             value: direction,
-            trigger: `${props.step.id}-${direction}`
+            trigger: props.nextId
         })
       }
       
@@ -16,8 +19,8 @@ function SwipeCard(props){
       }
     return (
         <TinderCard onSwipe={(onSwipe)} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>
-           <ReactPlayer className="videoPlayer" url={props.url} width="250px" height="100px"/>
-           <h5 className="text">some random text</h5>
+           <h6 className="text">{props.videoData.title}</h6>
+           <ReactPlayer className="videoPlayer" url={props.videoData.url} width="250px" height="100px"/>
         </TinderCard>
     )
 }
