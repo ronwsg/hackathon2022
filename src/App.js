@@ -4,6 +4,7 @@ import './App.css';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import SwipeCard from './SwipeCard';
+import ResultPlaylist from './ResultPlaylist';
 import Review from './Review';
 
 const theme = {
@@ -27,6 +28,11 @@ const videoURLs = {
     "https://www.youtube.com/watch?v=z6X5oEIg6Ak"
   ]
 }
+const onSwipeRight = (videoUrl) => {
+  selectedVideos.push(videoUrl);
+}
+
+const selectedVideos = [];
 
 function App() {
 
@@ -133,24 +139,40 @@ function App() {
       {
         id: 'choose-exercise-message',
         message: 'Please select your playlist',
-        trigger: 'choose-exercise',
+        trigger: 'choose-exercise-1',
       },
       {
-        id: 'choose-exercise',
+        id: 'choose-exercise-1',
         waitAction: true,
-        component: (<SwipeCard url={videoURLs.bh[0]} />), 
+        component: (<SwipeCard url={videoURLs.bh[0]} onSwipeRight={onSwipeRight} nextId="choose-exercise-2"/>), 
       },
       {
-        id: 'choose-exercise-left',
-        message: 'You swiped {previousValue}!',
-        end: true,
+        id: 'choose-exercise-2',
+        waitAction: true,
+        component: (<SwipeCard url={videoURLs.bh[0]} onSwipeRight={onSwipeRight} nextId="choose-exercise-3"/>), 
       },
       {
-        id: 'choose-exercise-right',
-        message: 'You swiped {previousValue}!',
-        end: true,
-      }
+        id: 'choose-exercise-3',
+        waitAction: true,
+        component: (<SwipeCard url={videoURLs.bh[0]} onSwipeRight={onSwipeRight} nextId="choose-exercise-4"/>), 
+      },
+      {
+        id: 'choose-exercise-4',
+        waitAction: true,
+        component: (<SwipeCard url={videoURLs.bh[0]} onSwipeRight={onSwipeRight} nextId="choose-exercise-5"/>), 
+      },
+      {
+        id: 'choose-exercise-5',
+        waitAction: true,
+        component: (<SwipeCard url={videoURLs.bh[0]} onSwipeRight={onSwipeRight} nextId="show-playlist"/>), 
+      },
+      {
+        id: 'show-playlist',
+        waitAction: true,
+        component: (<ResultPlaylist selectedVideos={selectedVideos} />), 
+      },
   ];
+
 
   return (
     <div className="App">

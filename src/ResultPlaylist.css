@@ -1,0 +1,10 @@
+.videoContainer {
+  display: flex;
+  flex-flow: column wrap;
+  margin: 20px;
+}
+
+.text {
+  color: black;
+  margin: 20px;
+}

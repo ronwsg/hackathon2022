@@ -5,9 +5,12 @@ import './SwipeCard.css';
 function SwipeCard(props){
     const onSwipe = (direction) => {
         console.log('You swiped: ' + direction, props);
+        if (direction === 'right') {
+            props.onSwipeRight(props.url);
+        }
         props.triggerNextStep({
             value: direction,
-            trigger: `${props.step.id}-${direction}`
+            trigger: props.nextId
         })
       }
       
