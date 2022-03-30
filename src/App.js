@@ -322,6 +322,7 @@ function App() {
           <ChatBot
             steps={steps} botAvatar="/dario1.png" customDelay="70" headerTitle="Dariothon Chatbot" speechSynthesis={{ enable: true, lang: 'en' }}
             width="100vw" height="100vh"
+            style={{width: '100%', padding: '0px',margin: '0px', position: 'relative'}}
           />
         </ThemeProvider>
       </header>
