@@ -153,7 +153,12 @@ function App() {
       },
       {
         id: 'choose-exercise-message',
-        message: 'Please select your playlist. Swipe left to reject. Swipe right to accept.',
+        message: 'Please select your playlist.',
+        trigger: 'choose-exercise-message-2',
+      },
+      {
+        id: 'choose-exercise-message-2',
+        message: 'Swipe left to reject. Swipe right to accept.',
         trigger: 'choose-exercise-1',
       },
       {
@@ -179,7 +184,12 @@ function App() {
       {
         id: 'choose-exercise-5',
         waitAction: true,
-        component: (<SwipeCard videoData={videoData.bh[4]} onSwipeRight={onSwipeRight} nextId="show-playlist"/>), 
+        component: (<SwipeCard videoData={videoData.bh[4]} onSwipeRight={onSwipeRight} nextId="playlist-message"/>), 
+      },
+      {
+        id: 'playlist-message',
+        message: 'Here is your playlist',
+        trigger: 'show-playlist',
       },
       {
         id: 'show-playlist',
