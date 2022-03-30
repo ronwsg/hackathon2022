@@ -8,3 +8,14 @@
   color: black;
   margin: 0px 0px 20px 0px;
 }
+
+.tinderCardContainer {
+  width: 270px;
+}
+
+.eogiEz {
+  justify-content: flex-start !important;
+  background: transparent !important;
+  padding-left: 60px !important;
+  box-shadow: none !important;
+}

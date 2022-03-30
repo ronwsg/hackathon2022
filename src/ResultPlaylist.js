@@ -9,7 +9,7 @@ function ResultPlaylist(props) {
   </div>;
 
   return (
-    <div>
+    <div className="tinderCardContainer">
       {playlist}
     </div>
   );

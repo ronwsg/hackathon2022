@@ -319,7 +319,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <ThemeProvider theme={theme}>
-          <ChatBot steps={steps} botAvatar="/dario1.png" customDelay="70" headerTitle="Dariothon Chatbot" speechSynthesis={{ enable: true, lang: 'en' }}/>
+          <ChatBot
+            steps={steps} botAvatar="/dario1.png" customDelay="70" headerTitle="Dariothon Chatbot" speechSynthesis={{ enable: true, lang: 'en' }}
+            width="100vw" height="100vh"
+          />
         </ThemeProvider>
       </header>
     </div>
