@@ -153,7 +153,7 @@ function App() {
       },
       {
         id: 'choose-exercise-message',
-        message: 'Please select your playlist',
+        message: 'Please select your playlist. Swipe left to reject. Swipe right to accept.',
         trigger: 'choose-exercise-1',
       },
       {
